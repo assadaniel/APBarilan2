@@ -12,6 +12,7 @@ SocketFileServer::SocketFileServer( const int port_no) : port_no(port_no) {
     if (sock < 0) {
         perror("error creating socket");
     }
+    setServerSock(sock);
     struct sockaddr_in sin;
     memset(&sin, 0, sizeof(sin));
     sin.sin_family = AF_INET;
@@ -32,6 +33,14 @@ SocketFileServer::SocketFileServer( const int port_no) : port_no(port_no) {
         perror("error accepting client");
     }
 
+}
+
+void SocketFileServer::setServerSock(int serverSock) {
+    server_sock = serverSock;
+}
+
+void SocketFileServer::close() {
+    ::close(server_sock);
 }
 
 

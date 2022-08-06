@@ -1,0 +1,23 @@
+//
+// Created by User on 06/08/2022.
+//
+
+#ifndef APBARILAN2_SOCKETFILECLIENT_H
+#define APBARILAN2_SOCKETFILECLIENT_H
+
+
+#include "SocketFile.h"
+
+class SocketFileClient : SocketFile {
+private:
+    const char* ip_address;
+    const int port_no;
+public:
+    SocketFileClient(const char* ip_address, int port_no);
+
+private:
+    void close() override;
+};
+
+
+#endif //APBARILAN2_SOCKETFILECLIENT_H

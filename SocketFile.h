@@ -7,22 +7,25 @@
 
 #include <iostream>
 #include <sys/socket.h>
-#include <stdio.h>
+#include <cstdio>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include <string.h>
+#include <cstring>
 #include <fstream>
 
 class SocketFile {
 private:
     int client_sock;
 public:
+    virtual ~SocketFile();
     virtual void receiveFile(std::fstream file_s) = 0;
 
     virtual void sendFile(std::fstream file_s) = 0;
-
+    virtual void close() = 0;
     void setClientSock(int clientSock);
+protected:
+    int getClientSock() const;
 };
 
 

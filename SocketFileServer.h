@@ -5,21 +5,20 @@
 #ifndef APBARILAN2_SOCKETFILESERVER_H
 #define APBARILAN2_SOCKETFILESERVER_H
 
-#include <iostream>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
+
 #include "SocketFile.h"
 
 
 class SocketFileServer : public SocketFile {
 private:
     const int port_no;
+    int server_sock;
 public:
-    SocketFileServer(const int port_no);
+    explicit SocketFileServer(int port_no);
+
+    void setServerSock(int serverSock);
+
+    void close() override;
 };
 
 
