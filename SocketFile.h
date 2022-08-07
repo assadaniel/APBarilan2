@@ -19,9 +19,9 @@ private:
     int client_sock;
 public:
     virtual ~SocketFile();
-    virtual void receiveFile(std::fstream file_s) = 0;
+    virtual void receiveFile(std::fstream file_s) = 0; // empty file stream
 
-    virtual void sendFile(std::fstream file_s) = 0;
+    virtual void sendFile(std::fstream file_s) = 0; //full file stream
     virtual void close() = 0;
     void setClientSock(int clientSock);
 protected:
