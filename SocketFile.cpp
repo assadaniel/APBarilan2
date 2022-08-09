@@ -5,7 +5,7 @@
 
 #include "SocketFile.h"
 
-void SocketFile::receiveFile(std::fstream file_s) {
+void SocketFile::receiveFile(std::fstream& file_s) {
     char buffer[CHUNK_SIZE];
     size_t data;
     while ((data = recv(client_sock, buffer, CHUNK_SIZE, 0)) > 0) {
@@ -16,7 +16,7 @@ void SocketFile::receiveFile(std::fstream file_s) {
     }
 }
 
-void SocketFile::sendFile(std::fstream file_s) {
+void SocketFile::sendFile(std::fstream& file_s) {
     size_t sent = 0;
     std::string line;
     while (getline(file_s, line)) {

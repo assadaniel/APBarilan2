@@ -8,15 +8,14 @@
 
 #include "SocketFile.h"
 
-class SocketFileClient : SocketFile {
+class SocketFileClient : public SocketFile {
 private:
     const char* ip_address;
     const int port_no;
+    void close() override;
 public:
     SocketFileClient(const char* ip_address, int port_no);
 
-private:
-    void close() override;
 };
 
 
