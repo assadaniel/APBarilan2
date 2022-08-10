@@ -12,7 +12,7 @@
 /**
  * @brief The main function.
  */
-int main(int argc, char **argv) {
+int mainn(int argc, char **argv) {
     if (argc <= 1) {
         std::cout << "argument k must be entered" << std::endl;
         return 0;
