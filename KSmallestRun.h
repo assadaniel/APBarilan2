@@ -7,7 +7,7 @@
 #include <fstream>
 class KSmallestRun {
 public:
-    static void runKSmallest(int k, std::fstream new_classified_stream, const std::string& unclassified_file_name);
+    static void runKSmallest(int k, std::fstream& new_classified_stream, const std::string& unclassified_file_name);
 };
 
 

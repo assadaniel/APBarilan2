@@ -18,7 +18,7 @@ public:
 
     void setServerSock(int serverSock);
 
-    void close() override;
+    void close();
 };
 
 

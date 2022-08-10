@@ -20,7 +20,6 @@ private:
 public:
     virtual ~SocketFile();
     virtual void receiveFile(std::fstream& file_s); // empty file stream
-
     virtual void sendFile(std::fstream& file_s); //full file stream
     virtual void close() = 0;
     void setClientSock(int clientSock);

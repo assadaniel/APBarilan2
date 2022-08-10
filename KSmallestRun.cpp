@@ -5,13 +5,13 @@
 #include "KSmallestRun.h"
 #include "IrisReader.hpp"
 #include "KSmallestElements.hpp"
-void KSmallestRun::runKSmallest(int k, std::fstream new_classified_stream, const std::string& unclassified_file_name) {
+void KSmallestRun::runKSmallest(int k, std::fstream& new_classified_stream, const std::string& unclassified_file_name) {
     IrisReader classifiedIrisReader("classified.csv");
     Iris cIris;
     std::vector<Iris> classifiedIrises;
     while (classifiedIrisReader.getNextIris(cIris)) { classifiedIrises.push_back(cIris); }
     //Create Unclassified Iris vector
-    IrisReader unclassifiedIrisReader("Unclassified.csv");
+    IrisReader unclassifiedIrisReader(unclassified_file_name);
     Iris uIris;
     std::vector<Iris> unclassifiedIrises;
     while (unclassifiedIrisReader.getNextIris(uIris)) { unclassifiedIrises.push_back(uIris); }
