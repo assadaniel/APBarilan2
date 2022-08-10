@@ -19,6 +19,6 @@
 
 class Server {
     public:
-        void KNN();
+        static void KNN();
 };
 #endif //APBARILAN2_SERVER_H

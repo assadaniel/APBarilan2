@@ -6,7 +6,7 @@
 #include "IrisReader.hpp"
 #include "KSmallestElements.hpp"
 void KSmallestRun::runKSmallest(int k, std::fstream& new_classified_stream, const std::string& unclassified_file_name) {
-    IrisReader classifiedIrisReader("classified.csv");
+    IrisReader classifiedIrisReader("classified.csv"); // name of classified file
     Iris cIris;
     std::vector<Iris> classifiedIrises;
     while (classifiedIrisReader.getNextIris(cIris)) { classifiedIrises.push_back(cIris); }
