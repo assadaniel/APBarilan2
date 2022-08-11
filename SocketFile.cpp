@@ -13,6 +13,8 @@ void SocketFile::receiveFile(std::fstream &file_s) {
     file_s.write(buffer, data);
     if (data < 0) {
         std::cout << "Server : Error receiving file." << std::endl;
+    } else {
+        std :: cout << "Received " << data << " bytes." << std::endl;
     }
 
 }
@@ -25,6 +27,8 @@ void SocketFile::sendFile(std::fstream &file_s, long file_size) {
     sent = send(client_sock, buffer, file_size, 0);
     if (sent < 0) {
         std::cout << "Server : Error sending file." << std::endl;
+    } else {
+        std :: cout << "Sent " << sent << " bytes." << std::endl;
     }
 }
 
