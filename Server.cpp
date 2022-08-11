@@ -7,8 +7,8 @@ void Server::KNN(){
     SocketFileServer SFS(port_no);
 
     //Create new classified fstream
-    std::string name_uclsf = "Unclassified.csv";
-    std::string name_clsf = "newclassified.csv";
+    std::string name_uclsf = "servernewUnclassified.csv";
+    std::string name_clsf = "servernewclassified.csv";
     std::fstream new_classified(name_clsf, std::ios::out | std::ios::in | std::ios::trunc); // write and read.
     std::fstream unclassified_received(name_uclsf, std::ios::out); // write only.
     SFS.receiveFile(unclassified_received);
