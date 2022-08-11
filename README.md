@@ -1,23 +1,16 @@
 # KNN algorithm to determine the type of an iris
 
 **This project was made by Daniel Assa and Daniel Lifshitz.**
-## Type finding
-It's currently meant to implement the KNN algorithm with iris types, for a given unclassified iris, we find its *K CLOSEST NEIGHBOURS* in $O\left(n\right)$ and from them determine its type,
+## Type finding by server
+The server is currently meant to implement the KNN algorithm with iris types, for a given unclassified iris, we find its *K CLOSEST NEIGHBOURS* in $O\left(n\right)$ and from them determine its type,
 using the following three different types of irises: *setosa*, *virgincia*, *versicolor*. 
-## Classes
- The ```Iris``` class, so we would be able to handle each iris alone.  
-The ```IrisComp``` class so we would be able to compare objects where each one holds an iris and a number, and be able to work with it and use it seemlessly as a number.  
-The ```IrisReader``` class so we would be able to read a file filled with information about irises and convert it to an iris object.  
-The ``` KSmallestElements```, so we would be able to implement the KNN algorithm.  
-and so we would be able to to determine the type of the iris given to us using the algorithm. 
+## Files sent by the client
+The client sends the server a file of unclassified iris types, the server classifies them and sends the client the file with the classified types.
 ## Run the code
 ### Requirements
-In order to run the code, the program must receive a parameter $k$ as ac command line argument, for example:
-```
-./main 3
-```
 
-The program should also receive a file ```classified.csv``` full of classified Iris, which contains in each line $5$ columns, for example, the contents of the file should look like this:  
+
+The server should have a file ```classified.csv``` in it's working directory full of classified Iris, which contains in each line $5$ columns, for example, the contents of the file should look like this:  
 ```
 5.4,3.9,1.7,0.4,Iris-versicolor
 4.6,3.4,1.4,0.3,Iris-setosa
@@ -31,30 +24,32 @@ The numbers in each column correspond to a feature of the iris:
 5. The iris' type, from the types stated above.  
   
   
-The program must also receive a file ```Unclassified.csv``` which contains the same contents as the ```classified.csv``` file, but it misses the type column (or the fifth column), thus making it a file of "unclassified" irises.  
+The client must also receive a file ```Unclassified.csv``` which contains the same contents as the ```classified.csv``` file, but it misses the type column (or the fifth column), thus making it a file of "unclassified" irises.  
 ### Compile and run
-If the only files you have in your directory are the needed files, mainly ```ex1.cpp```, ```Iris.cpp```, ```IrisComp.cpp```, ```IrisReader.cpp```, and  ```KSmallestElements.cpp``` **and their headers (.hpp)**.
-You can compile the code with this command:  
+The project has a given ```Makefile``` for you to use when compiling the code.
+In order to compile the server code type in:
 ```
-g++ -std=c++11 *.cpp -o program
+make server
 ```
-Otherwise you need to list them:
+and to run it:
 ```
-g++ -std=c++11  ex1.cpp Iris.cpp IrisComp.cpp IrisReader.cpp KSmallestElements.cpp -o program
+./server
 ```
-And run on linux/mac: 
+And the same goes for the client, run this client command after you've run the server command (and while it's running):
 ```
-./program 9
+make client
 ```
-and on windows:
+and to run it:
 ```
-program 9
+./client Data/unclassified.csv Output/classified.csv
 ```
-Here $k=9$.  
-**Make sure the ```classified.csv``` and ```Unclassified.csv``` are in your working directory otherwise the program won't be able to find them.**
+Where these paths are an example for the pathes where you would have the ```unclassified.csv``` file and the path for the future ```classified.csv``` file.  
+**Remember** the ```unclassified.csv``` file is the file the client sends to the server that **needs to exists beforehand**, and the ```classified.csv``` file is the file which will have the types from the irises sent from the server, meaning this file doesn't have to exist, the program can create it. 
+Here $k=9$ defaultly.
+
 
 ## Output
-The program outputs three files ```euclidean_output.csv```, ```chebyshev_output.csv``` and ```manhattan_output.csv```, where for each one it prints its results based on the corrosponding metric to the file name.  
+The server sends the client data which will be kept in the ```classified.csv``` file, the same one whose path you will give when running the client. 
 For example: 
 ```
 Iris-setosa
