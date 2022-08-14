@@ -49,7 +49,7 @@ Where these paths are an example for the pathes where you would have the ```uncl
 Here $k=9$ defaultly.
 
 ### Files in working directories
-You must have a ```classified.csv``` file in the server's working directory and a '```unclassified.csv``` file for the client (this is the file for which you supply a path at the command line).
+You must have a ```classified.csv``` file in the server's working directory and a ```unclassified.csv``` file in the client's working directory (this is the file for which you supply a path at the command line).
 
 
 ## Output
