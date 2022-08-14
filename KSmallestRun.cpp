@@ -5,6 +5,14 @@
 #include "KSmallestRun.h"
 #include "IrisReader.hpp"
 #include "KSmallestElements.hpp"
+
+/**
+ * @brief Running the K Smallest Elements function om multiple objects and using it to classifie the irises.
+ * 
+ * @param k The number of elements to find.
+ * @param new_classified_stream The file of the classified irises.
+ * @param unclassified_file_name The file name of the unclassified irises we want to classifie.
+ */
 void KSmallestRun::runKSmallest(int k, std::fstream& new_classified_stream, const std::string& unclassified_file_name) {
     IrisReader classifiedIrisReader("classified.csv"); // name of classified file
     Iris cIris;

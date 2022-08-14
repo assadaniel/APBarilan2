@@ -5,6 +5,11 @@
 //
 // Created by User on 10/08/2022.
 //
+
+/**
+ * @brief The main function of the server.
+ * 
+ */
 int main() {
     // Create socket
     int port_no = 5555;

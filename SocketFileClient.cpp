@@ -4,6 +4,12 @@
 
 #include "SocketFileClient.h"
 
+/**
+ * @brief Creating a new client socket and connecting to the server.
+ * 
+ * @param ip_address The ip address of the server the client connect to.
+ * @param port_no The port number the server is in. 
+ */
 SocketFileClient::SocketFileClient(const char *ip_address, const int port_no) :
         ip_address(ip_address), port_no(port_no) {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -25,6 +31,10 @@ SocketFileClient::SocketFileClient(const char *ip_address, const int port_no) :
 
 }
 
+/**
+ * @brief Closing the client socket.
+ * 
+ */
 void SocketFileClient::close() {
     ::close(getClientSock());
 }

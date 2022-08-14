@@ -6,6 +6,11 @@
 #include <sys/stat.h>
 #include "SocketFile.h"
 
+/**
+ * @brief Reciving a file in parts and writing it into the fstream file_s.
+ * 
+ * @param file_s The fstream we write to.
+ */
 void SocketFile::receiveFile(std::fstream &file_s) {
     char buffer[CHUNK_SIZE];
     size_t data;
@@ -19,6 +24,12 @@ void SocketFile::receiveFile(std::fstream &file_s) {
 
 }
 
+/**
+ * @brief Sending a file.
+ * 
+ * @param file_s The fstream we send from.
+ * @param file_size The size of the file we want to send.
+ */
 void SocketFile::sendFile(std::fstream &file_s, long file_size) {
     size_t sent = 0;
     std::string line;
@@ -32,17 +43,37 @@ void SocketFile::sendFile(std::fstream &file_s, long file_size) {
     }
 }
 
+/**
+ * @brief Setting the client socket number.
+ * 
+ * @param clientSock The client socket number.
+ */
 void SocketFile::setClientSock(int clientSock) {
     client_sock = clientSock;
 }
 
+/**
+ * @brief Destroy the Socket File:: Socket File object
+ * 
+ */
 SocketFile::~SocketFile() = default;
 
+/**
+ * @brief Getting the client socket number.
+ * 
+ * @return The client socket number.
+ */
 int SocketFile::getClientSock() const {
     return client_sock;
 }
 
 //FROM STACK OVERFLOW: https://stackoverflow.com/questions/5840148/how-can-i-get-a-files-size-in-c?noredirect=1&lq=1
+/**
+ * @brief Getting the file size.
+ * 
+ * @param filename The name of the file we get the size of.
+ * @return The size of the file.
+ */
 long SocketFile::getFileSize(const std::string &filename) {
     struct stat stat_buf{};
     int rc = stat(filename.c_str(), &stat_buf);
