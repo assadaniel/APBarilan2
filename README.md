@@ -43,9 +43,13 @@ and to run it:
 ```
 ./client Data/unclassified.csv Output/classified.csv
 ```
+***In Linux.***    
 Where these paths are an example for the pathes where you would have the ```unclassified.csv``` file and the path for the future ```classified.csv``` file.  
 **Remember** the ```unclassified.csv``` file is the file the client sends to the server that **needs to exists beforehand**, and the ```classified.csv``` file is the file which will have the types from the irises sent from the server, meaning this file doesn't have to exist, the program can create it. 
 Here $k=9$ defaultly.
+
+### Files in working directories
+You must have a ```classified.csv``` file in the server's working directory and a '```unclassified.csv``` file for the client (this is the file for which you supply a path at the command line).
 
 
 ## Output
